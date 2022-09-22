@@ -23,13 +23,7 @@ import {
   ScaleIcon,
 } from "@heroicons/react/24/outline";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
-// import { BoltIcon, ChatBubbleBottomCenterTextIcon, GlobeAltIcon, ScaleIcon } from '@heroicons/react/24/outline'
 
-// export const recentPosts : {
-//   id: number;
-//   name: string;
-//   href: string;
-// }[]
 const solutions = [
   {
     name: "Analytics",
@@ -177,14 +171,20 @@ export default function Nav() {
                         )}
                         aria-hidden="true"
                       />
-                    </Popover.Button>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={classNames(
+                        // open ? "text-gray-600" : '',
+                        "ml-2 h-5 w-5 "
+                      )}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
+                      </svg>
 
+                    </Popover.Button>
                     <Transition
                       as={Fragment}
-                      enter="transition ease-out duration-200"
+                      enter="transition ease-out duration-700"
                       enterFrom="opacity-0 translate-y-1"
                       enterTo="opacity-100 translate-y-0"
-                      leave="transition ease-in duration-150"
+                      leave="transition ease-in duration-700"
                       leaveFrom="opacity-100 translate-y-0"
                       leaveTo="opacity-0 translate-y-1"
                     >
@@ -357,16 +357,16 @@ export default function Nav() {
 
         <Transition
           as={Fragment}
-          enter="duration-200 ease-out"
+          enter="transition duration-500 ease-out"
           enterFrom="opacity-0 scale-95"
           enterTo="opacity-100 scale-100"
-          leave="duration-100 ease-in"
-          leaveFrom="opacity-100 scale-100"
+          leave="transition duration-100 ease-in"
+          leaveFrom="opacity-100 "
           leaveTo="opacity-0 scale-95"
         >
           <Popover.Panel
             focus
-            className="absolute inset-x-0 top-0 origin-top-right p-2 transition md:hidden"
+            className="absolute inset-x-0 top-0 origin-top-right p-2 transition"
           >
             <div className="divide-y-2 divide-gray-50 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
               <div className="px-5 pt-5 pb-6">
@@ -405,7 +405,7 @@ export default function Nav() {
                   </nav>
                 </div>
               </div>
-              <div className="space-y-6 py-6 px-5">
+              <div className="space-y-6 py-6 px-5 bg-black">
                 <div className="grid grid-cols-2 gap-y-4 gap-x-8">
                   <a
                     href="#"
@@ -452,7 +452,7 @@ export default function Nav() {
           </Popover.Panel>
         </Transition>
       </Popover>
-      
+
       <div>
         <div className="bg-white py-12">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -470,23 +470,23 @@ export default function Nav() {
             </div>
 
             <div className="mt-10">
-              <dl className="space-y-10 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10 md:space-y-0">
+              <div className="space-y-10 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10 md:space-y-0">
                 {features.map((feature) => (
-                  <div key={feature.name} className="relative">
-                    <dt>
-                      <div className="absolute flex h-12 w-12 items-center justify-center rounded-md bg-indigo-500 text-white">
+                  <div key={feature.name} className="">
+                    <div className="flex">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-md bg-indigo-500 text-white">
                         <feature.icon className="h-6 w-6" aria-hidden="true" />
                       </div>
-                      <p className="ml-16 text-lg font-medium leading-6 text-gray-900">
+                      <div className="ml-16 text-lg font-medium leading-6 text-gray-900">
                         {feature.name}
-                      </p>
-                    </dt>
-                    <dd className="mt-2 ml-16 text-base text-gray-500">
+                      </div>
+                    </div>
+                    <div className="mt-2 ml-16 text-base text-gray-500">
                       {feature.description}
-                    </dd>
+                    </div>
                   </div>
                 ))}
-              </dl>
+              </div>
             </div>
           </div>
         </div>
